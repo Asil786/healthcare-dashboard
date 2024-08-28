@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
+import { ProSidebar, Menu, MenuItem} from 'react-pro-sidebar';
+import 'react-pro-sidebar/dist/css/styles.css';
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
-import "react-pro-sidebar/dist/css/styles.css";
+import { Link } from "react-router-dom";  
 import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
@@ -35,7 +35,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
-const Sidebar = () => {
+const CustomSidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -88,33 +88,6 @@ const Sidebar = () => {
               </Box>
             )}
           </MenuItem>
-
-          {!isCollapsed && (
-            <Box mb="25px">
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <img
-                  alt="profile-user"
-                  width="100px"
-                  height="100px"
-                  src={`../../assets/user.png`}
-                  style={{ cursor: "pointer", borderRadius: "50%" }}
-                />
-              </Box>
-              <Box textAlign="center">
-                <Typography
-                  variant="h2"
-                  color={colors.grey[100]}
-                  fontWeight="bold"
-                  sx={{ m: "10px 0 0 0" }}
-                >
-                  Jessica Smith
-                </Typography>
-                <Typography variant="h5" color={colors.greenAccent[500]}>
-                  Smart Admin
-                </Typography>
-              </Box>
-            </Box>
-          )}
 
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
@@ -225,4 +198,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default CustomSidebar;
